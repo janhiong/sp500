@@ -32,7 +32,7 @@ bool saveCredentialsEncrypted(const std::string& username, const std::string& sa
     std::ofstream out("../backend/encrypted/credentials.dat", std::ios::app);
 
     if (!out) {
-        std::cerr << "❌ Failed to open credentials.dat for writing\n";
+        std::cerr << "Failed to open credentials.dat for writing\n";
         return false;
     }
 
@@ -53,7 +53,7 @@ bool verifyCredentials(const std::string& username, const std::string& password)
         std::string ciphertext = line.substr(16);
 
         std::string decrypted = decryptAES(ciphertext, key, iv);
-        std::cerr << "🧪 Decrypted: ";
+        std::cerr << "Decrypted: ";
         for (unsigned char c : decrypted) {
             if (isprint(c))
                 std::cerr << c;
@@ -89,7 +89,7 @@ bool signUp(const std::string& username, const std::string& password) {
 
     std::ofstream out("../backend/encrypted/credentials.dat", std::ios::app);
     if (!out) {
-        std::cerr << "❌ Failed to open credentials.dat for writing\n";
+        std::cerr << "Failed to open credentials.dat for writing\n";
         return false;
     }
     out << iv << encrypted << "\n";
