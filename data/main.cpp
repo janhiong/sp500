@@ -33,9 +33,9 @@ int main() {
             std::cin >> password;
 
             if (signUp(username, password)) {
-                std::cout << "✅ Account created successfully!\n";
+                std::cout << "Account created successfully!\n";
             } else {
-                std::cout << "❌ Error creating account.\n";
+                std::cout << "Error creating account.\n";
             }
         } else if (choice == 2) {
             std::cout << "Enter username: ";
@@ -44,11 +44,11 @@ int main() {
             std::cin >> password;
 
             if (login(username, password)) {
-                std::cout << "✅ Logged in successfully!\n";
+                std::cout << "Logged in successfully!\n";
                 loggedIn = true;
-                userPortfolio.loadFromFile(username);  // ✅ Add this
+                userPortfolio.loadFromFile(username);  
             } else {
-                std::cout << "❌ Invalid credentials.\n";
+                std::cout << "Invalid credentials.\n";
             }
         } else if (choice == 3) {
             std::cout << "Goodbye!\n";
@@ -86,7 +86,7 @@ int main() {
 
             double price = getClosingPrice(sym, date);
             if (price == -1.0) {
-                std::cout << "❌ Invalid symbol or date.\n";
+                std::cout << "Invalid symbol or date.\n";
             } else {
                 userPortfolio.buyStock(sym, shares, price);
                 userPortfolio.saveToFile(username);
@@ -104,7 +104,7 @@ int main() {
 
             double price = getClosingPrice(sym, date);
             if (price == -1.0) {
-                std::cout << "❌ Invalid symbol or date.\n";
+                std::cout << "Invalid symbol or date.\n";
             } else {
                 userPortfolio.sellStock(sym, shares, price);
                 userPortfolio.saveToFile(username);
@@ -119,16 +119,16 @@ int main() {
 
             double price = getClosingPrice(sym, date);
             if (price != -1.0) {
-                std::cout << "📈 Closing price for " << sym << " on " << date << " is $" << price << "\n";
+                std::cout << "Closing price for " << sym << " on " << date << " is $" << price << "\n";
             } else {
-                std::cout << "❌ Could not find data for that day.\n";
+                std::cout << "Could not find data for that day.\n";
             }
 
         } else if (choice == 5) {
-            std::cout << "🚪 Logging out...\n";
+            std::cout << "Logging out...\n";
             break;
         } else {
-            std::cout << "❌ Invalid option.\n";
+            std::cout << "Invalid option.\n";
             clearInput();
         }
     }
