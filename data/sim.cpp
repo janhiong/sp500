@@ -10,7 +10,7 @@ extern void testPortfolioLink();
 
 int main(int argc, char* argv[]) {
     if (argc < 2) {
-        cout << "❌ No command provided.\n";
+        cout << "No command provided.\n";
         return 1;
     }
 
@@ -22,7 +22,7 @@ int main(int argc, char* argv[]) {
             return 1;
         }
         bool success = signUp(argv[2], argv[3]);
-        cout << (success ? "✅ Account created\n" : "❌ Signup failed\n");
+        cout << (success ? "Account created\n" : "Signup failed\n");
         return success ? 0 : 1;
     }
 
@@ -32,7 +32,7 @@ int main(int argc, char* argv[]) {
             return 1;
         }
         bool success = login(argv[2], argv[3]);
-        cout << (success ? "✅ Login successful\n" : "❌ Invalid credentials\n");
+        cout << (success ? "Login successful\n" : "Invalid credentials\n");
         return success ? 0 : 1;
     }
 
@@ -42,7 +42,7 @@ int main(int argc, char* argv[]) {
             return 1;
         }
         bool success = buyStock(argv[2], argv[3], stoi(argv[4]), argv[5]);
-        cout << (success ? "✅ Stock purchased\n" : "❌ Buy failed\n");
+        cout << (success ? "Stock purchased\n" : "Buy failed\n");
         return success ? 0 : 1;
     }
 
@@ -52,7 +52,7 @@ int main(int argc, char* argv[]) {
             return 1;
         }
         bool success = sellStock(argv[2], argv[3], stoi(argv[4]), argv[5]);
-        cout << (success ? "✅ Stock sold\n" : "❌ Sell failed\n");
+        cout << (success ? "Stock sold\n" : "Sell failed\n");
         return success ? 0 : 1;
     }
 
@@ -64,6 +64,6 @@ int main(int argc, char* argv[]) {
         return showPortfolio(argv[2]);
     }
 
-    cout << "❌ Unknown command\n";
+    cout << "Unknown command\n";
     return 1;
 }
