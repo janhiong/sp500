@@ -54,37 +54,37 @@ int Portfolio::getShares(const std::string& symbol) const {
 
 bool buyStock(const std::string& username, const std::string& symbol, int shares, const std::string& date) {
     Portfolio p;
-    p.loadFromFile(username);                    // Load existing portfolio
+    p.loadFromFile(username);                    
     double price = getClosingPrice(symbol, date);
     if (price < 0) {
-        std::cout << "❌ Invalid symbol or date.\n";
+        std::cout << "Invalid symbol or date.\n";
         return false;
     }
     p.buyStock(symbol, shares, price);
 
-    p.saveToFile(username);                      // ✅ Save updated portfolio
-    std::cout << "✅ Bought " << shares << " shares of " << symbol << "\n";
+    p.saveToFile(username);                      
+    std::cout << "Bought " << shares << " shares of " << symbol << "\n";
     return true;
 }
 
 bool sellStock(const std::string& username, const std::string& symbol, int shares, const std::string& date) {
     Portfolio p;
-    p.loadFromFile(username);                    // Load portfolio
-    p.sellStock(symbol, shares, 100.0);          // Sell
-    p.saveToFile(username);                      // ✅ Save updated portfolio
-    std::cout << "✅ Sold " << shares << " shares of " << symbol << "\n";
+    p.loadFromFile(username);                    
+    p.sellStock(symbol, shares, 100.0);          
+    p.saveToFile(username);                      
+    std::cout << "Sold " << shares << " shares of " << symbol << "\n";
     return true;
 }
 
 int showPortfolio(const std::string& username) {
     Portfolio p;
-    p.loadFromFile(username);   // ✅ Add this line
+    p.loadFromFile(username);   
     p.viewPortfolio();
     return 0;
 }
 
 void testPortfolioLink() {
-    std::cout << "✅ portfolio.cpp compiled correctly\n";
+    std::cout << "portfolio.cpp compiled correctly\n";
 }
 
 bool Portfolio::loadFromFile(const std::string& username) {
@@ -99,12 +99,12 @@ bool Portfolio::loadFromFile(const std::string& username) {
         double price;
 
         if (line.rfind("CASH", 0) == 0) {
-            std::getline(iss, sym, ',');  // skip "CASH"
-            iss >> cash;                  // read cash value
+            std::getline(iss, sym, ',');  
+            iss >> cash;                  
         } else {
             std::getline(iss, sym, ',');
             iss >> shares;
-            iss.ignore(1); // skip comma
+            iss.ignore(1); 
             iss >> price;
             holdings[sym] = { sym, shares, price };
         }
