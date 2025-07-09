@@ -26,12 +26,12 @@ public:
     bool hasStock(const std::string& symbol) const;
     int getShares(const std::string& symbol) const;
 
-    // ✅ Properly declared as member functions
+    // Properly declared as member functions
     bool loadFromFile(const std::string& username);
     bool saveToFile(const std::string& username) const;
 };
 
-// ✅ Declared as standalone (non-member) functions
+// Declared as standalone (non-member) functions
 bool buyStock(const std::string& username, const std::string& symbol, int shares, const std::string& date);
 bool sellStock(const std::string& username, const std::string& symbol, int shares, const std::string& date);
 int showPortfolio(const std::string& username);
